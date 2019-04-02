@@ -15,15 +15,23 @@ namespace inClass10
             string allText = System.IO.File.ReadAllText(@"C:\Users\noahv\OneDrive\Desktop\College\Computer Programming\C#\FilePractice.txt");
 
 
-            Console.WriteLine("Contents of FilePractice.txt = {0}", allText);
+            Console.WriteLine("Contents of FilePractice.txt " + allText);
 
 
-            string[] words = allText.Split();
+            string[] words = allText.Split(' ');
 
             for (int i = 0; i < words.Length; i++)
             {
-                
+                words[i] = words[i].Replace(",", "");
+                words[i] = words[i].Replace(".", "");
+                words[i] = words[i].Replace("!", "");
+                words[i] = words[i].Replace("?", "");
+                Console.WriteLine(words[i]);
+            }
 
+
+            for (int i = 0; i < words.Length; i++)
+            {
                 if (words[i].Substring(words[i].Length - 1) == "e" || words[i].Substring(words[i].Length - 1) == "t")
                 {
                     count++;
@@ -31,6 +39,10 @@ namespace inClass10
             }
 
             Console.WriteLine("There are " + count + " words that end in e or t");
+
+
+
+
 
 
         }
